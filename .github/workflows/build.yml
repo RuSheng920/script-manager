@@ -7,6 +7,9 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,11 +24,11 @@ jobs:
           java-version: "17"
           distribution: "temurin"
 
-      # v4 auto-generates gradlew + wrapper if the repo doesn't have one
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: "8.2"
+
+      - name: Ensure gradlew is executable
+        run: chmod +x gradlew
 
       - name: Build debug APK
         run: ./gradlew assembleDebug
