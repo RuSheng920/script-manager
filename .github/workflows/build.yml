@@ -5,7 +5,7 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  workflow_dispatch:   # allow manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,8 +21,11 @@ jobs:
           java-version: "17"
           distribution: "temurin"
 
-      - name: Cache Gradle
-        uses: gradle/actions/setup-gradle@v3
+      # v4 auto-generates gradlew + wrapper if the repo doesn't have one
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.2"
 
       - name: Build debug APK
         run: ./gradlew assembleDebug
@@ -30,7 +33,7 @@ jobs:
       - name: Build release APK
         run: ./gradlew assembleRelease
 
-      - name: Upload APKs (debug + release)
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
           name: apks
