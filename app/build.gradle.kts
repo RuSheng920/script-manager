@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.scriptmanager.app"
-    compileSdk = 34
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.scriptmanager.app"
@@ -51,39 +51,19 @@ android {
 }
 
 dependencies {
-    // Miuix UI library
+    // === Miuix (pulls Compose 1.11.x transitively — do NOT pin Compose manually) ===
     implementation("top.yukonga.miuix.kmp:miuix-ui-android:0.9.2")
     implementation("top.yukonga.miuix.kmp:miuix-preference-android:0.9.2")
     implementation("top.yukonga.miuix.kmp:miuix-icons-android:0.9.2")
 
-    // Compose BOM
-    val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
-    implementation(composeBom)
-
-    // Compose
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.foundation:foundation")
-
-    // Activity & Lifecycle
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
-
-    // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.7")
-
-    // DataStore
+    // === AndroidX — conservative pins that won't upgrade AGP requirement ===
+    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.navigation:navigation-compose:2.8.5")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
-    // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
-
-    // JSON
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
-
-    // Debug
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // === Kotlin ===
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 }
