@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">脚本管理器</string>
+    <string name="script_list">脚本列表</string>
+    <string name="new_script">新建脚本</string>
+    <string name="edit_script">编辑脚本</string>
+    <string name="run_script">运行脚本</string>
+    <string name="settings">设置</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="run">运行</string>
+    <string name="stop">停止</string>
+    <string name="import_scripts">从目录导入</string>
+    <string name="no_scripts_yet">还没有脚本</string>
+    <string name="create_first_script">点击下方按钮创建新脚本</string>
+    <string name="root_detected">Root 已检测</string>
+    <string name="root_not_detected">未检测到 Root 权限</string>
+    <string name="terminal_output">终端输出</string>
+    <string name="executing">运行中…</string>
+    <string name="exec_success">执行成功</string>
+    <string name="exec_failed">执行失败</string>
+</resources>
